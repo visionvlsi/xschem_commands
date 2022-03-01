@@ -1,0 +1,86 @@
+sudo apt-get update -y
+sudo apt-get install -y libx11-6
+sudo apt-get install -y libxrender1
+sudo apt-get install -y libxcb1
+sudo apt-get install -y libcairo2
+sudo apt-get install -y tcl8.6
+sudo apt-get install -y tk8.6
+sudo apt-get install -y flex
+sudo apt-get install -y libxpm4
+sudo apt-get install -y libx11-dev
+sudo apt-get install -y libxrender-dev
+sudo apt-get install -y libx11-xcb-dev
+sudo apt-get install -y libcairo2-dev
+sudo apt-get install -y tk8.6-dev
+sudo apt-get install -y bison
+sudo apt-get install -y libxpm-dev
+sudo apt-get install -y gawk
+git clone https://github.com/StefanSchippers/xschem.git
+cd xschem
+./configure
+sudo make
+sudo make install
+git clone https://github.com/google/skywater-pdk
+cd skywater-pdk/
+git submodule init libraries/sky130_fd_io/latest
+git submodule init libraries/sky130_fd_pr/latest
+git submodule init libraries/sky130_fd_sc_hd/latest
+git submodule init libraries/sky130_fd_sc_hvl/latest
+git submodule update
+sudo make timing
+## Magic
+sudo apt-get install m4
+sudo apt-get install tcsh 
+sudo apt-get install csh 
+sudo apt-get install libx11-dev 
+sudo apt-get install tcl-dev tk-dev 
+sudo apt-get install libcairo2-dev 
+sudo apt-get install mesa-common-dev libglu1-mesa-dev 
+sudo apt-get install libncurses-dev 
+git clone https://github.com/RTimothyEdwards/magic.git
+cd magic/
+./configure 
+sudo make
+sudo make install
+//open-pdk
+git clone https://github.com/RTimothyEdwards/open_pdks.git
+cd open_pdks/
+./configure --enable-sky130-pdk=/home/student/skywater-pdk/libraries
+sudo make 
+sudo make install
+
+#####ngspice 
+
+sudo apt-get install build-essential
+sudo apt-get install automake libtool gperf flex bison
+sudo apt-get install libxml2 libxml2-dev
+sudo apt-get install libxml-libxml-perl
+sudo apt-get install libgd-perl
+
+git clone https://github.com/Qucs/ADMS.git
+cd ADMS/
+sh bootstrap.sh 
+./configure 
+sudo make install
+
+
+git clone git clone https://git.code.sf.net/p/ngspice/ngspice 
+git clone https://git.code.sf.net/p/ngspice/ngspice 
+cd ngspice/
+git checkout pre-master
+#./autogen.sh --adms
+sudo apt-get install -y libxaw7-dev
+sudo apt-get install -y libreadline-dev
+export LD_LIBRARY_PATH=/usr/local/lib
+./autogen.sh --adms
+mkdir release
+cd release
+./configure --with-x --enable-xspice --disable-debug --enable-cider --with-readline=yes --enable-openmp
+sudo make
+sudo make install
+cd
+cd .xschem
+cd simulations
+gedit .spiceinit (set ngbehavior=hs)
+sudo apt install vim-gtk3
+sudo apt-get install -y xterm
