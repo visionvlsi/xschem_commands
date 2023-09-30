@@ -1,7 +1,10 @@
 #### xschem_commands
 
-After installation completed do the following in the terminal
+use this file for Installation<br/>
+[Installation file](https://github.com/visionvlsi/xschem_commands/blob/main/install.sh)
 
-cd .xschem
-cd simulations
+After installation is completed do the following in the terminal
+
+cd .xschem<br/>
+cd simulations<br/>
 gedit .spiceinit (set ngbehavior=hs)
